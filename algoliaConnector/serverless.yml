@@ -1,0 +1,18 @@
+service: aws-nodejs
+provider:
+  name: aws
+  runtime: nodejs10.x
+functions:
+  algoliaConnector:
+    handler: handler.algolia
+    environment:
+      STORE_HASH: ZZZ
+      BC_CLIENT: XXXX
+      BC_TOKEN: YYYY
+      ALGOLIA_APP_ID: YYYY
+      ALGOLIA_API_KEY: XXXX
+    events:
+      - http:
+          path: algolia
+          method: post
+          cors: true
